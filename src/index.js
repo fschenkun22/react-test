@@ -1,7 +1,8 @@
 import reactDom from "react-dom";
+import APP from "./APP7";
 
 reactDom.render(
-    <h1>123</h1>,
+   <APP/>,
     document.getElementById('root')
 )
 
