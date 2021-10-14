@@ -1,13 +1,20 @@
-//子传父
+//孙子老子一起传
 
 import React, { Component } from 'react'
-
+import PropTypes from "prop-types"//context传值前需要引入，因为传值时候需要验证数据类型
 
 //孙子
 class Sunzi extends Component{
+
+    //🚩3 孙子组件使用时候 先限制传入值的类型
+    //📍vscode无提示，注意contextTypes ,带s 不带会报找不到变量错误
+    static contextTypes = {
+        publicNum:PropTypes.number
+    }
+
     render(){
         return(
-            <h1>这是孙子</h1>
+            <h1>这是孙子得到的公共数据publicnum的值{this.context.publicNum}</h1>
         )
     }
 }
@@ -56,6 +63,20 @@ export default class APP13 extends Component {
     state = {
         mynum:666
     }
+
+    //🚩1 在父组件定义跨组件传值的数据类型
+    static childContextTypes = {
+        publicNum:PropTypes.number
+    }
+
+    //🚩2 给上下文传入数据及值
+    getChildContext(){
+        return{
+            publicNum:8888
+        }
+    }
+
+
 
     render() {
         return (
