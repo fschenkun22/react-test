@@ -1,10 +1,10 @@
 import reactDom from "react-dom";
-import APP from "./APP";
+import App from "./App";
 // import BaseRoute
 //  from './routers'
 
 reactDom.render(
-   <APP/>,
+   <App/>,
     document.getElementById('root')
 )
 
