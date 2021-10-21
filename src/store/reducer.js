@@ -1,13 +1,16 @@
 //定义默认状态
 //导出箭头函数
 
+import { ADD_NUM } from "./actionTypes";
+
 //数据默认的初始值
 const defaultState = {
     iptVal:'',
-    listArr:['hello','world']
+    listArr:['hello','world'],
+    num:100
 }
 
-export default (state=defaultState,action)=>{
+ const reducer = (state=defaultState,action)=>{
 
     let newState = JSON.parse(JSON.stringify(state)) //深拷贝只能拷贝一层，多层要加循环
 
@@ -24,9 +27,13 @@ export default (state=defaultState,action)=>{
             newState.iptVal=""
             break;
 
+        case ADD_NUM:
+            newState.num += action.value
+
         default:break
     }
 
     return newState
 }
 
+export default reducer

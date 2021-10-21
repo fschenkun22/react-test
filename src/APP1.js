@@ -1,28 +1,34 @@
 import React, { Component } from 'react'
+import store from './store'
+import { AddNumCreator } from './store/actionCreators'
+import { ADD_NUM } from './store/actionTypes'
+export default class App1 extends Component {
 
-const msg = "hello world"
-const sex = 0
-const arr = ['张三','李四','王五']
+    constructor(props){
+        super(props)
+        this.state={
+            num :0
+        }
 
-export default class APP1 extends Component {
+        store.subscribe(this.storeChange.bind(this))
+    }
+
+    storeChange(){
+        this.setState(store.getState())
+    }
+
+
     render() {
         return (
             <div>
-                <p>{msg}</p>
-                <p>{sex === 0 ? "男":"女"}</p>
-
-                <ul>
-                    {
-                        arr.map(
-                            (item,index)=>{
-                                return(
-                                    <li key={index}>{item+index}</li>
-                                )
-                            }
-                        )
-                    }
-                </ul>
+                <h2>{this.state.num}</h2>
+                <button onClick={this.addNumFn.bind(this)}> 📈 触发addNumFn动作</button>
             </div>
         )
+    }
+
+    addNumFn(){
+        console.log('动作触发，调用actionCreator返回派发的动作');
+        store.dispatch(AddNumCreator())
     }
 }

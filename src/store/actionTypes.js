@@ -1,0 +1,1 @@
+export const ADD_NUM = "增加数字函数"
