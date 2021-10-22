@@ -19,21 +19,23 @@ const defaultState = {
         case 'changeInput':
             newState.iptVal = action.value
             console.log('change input');
-            break;
+            break
     
         case 'addItemfn':
             console.log('add item fn reducer')
             newState.listArr.push(newState.iptVal)
             newState.iptVal=""
-            break;
+            break
 
         case ADD_NUM:
             newState.num += action.value
+            break
 
         default:break
+           
     }
-
     return newState
+    
 }
 
 export default reducer

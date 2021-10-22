@@ -2,9 +2,14 @@ import reactDom from "react-dom";
 import App from "./App1";
 // import BaseRoute
 //  from './routers'
+import { Provider } from 'react-redux'
+import store from "./store";
 
 reactDom.render(
-   <App/>,
+    <Provider store={store} >
+        <App />
+    </Provider>
+    ,
     document.getElementById('root')
 )
 
