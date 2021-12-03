@@ -1,5 +1,5 @@
 import reactDom from "react-dom";
-import App from "./App3";
+import Router from './routers'
 // import BaseRoute
 //  from './routers'
 import { Provider } from 'react-redux'
@@ -7,7 +7,7 @@ import store from "./store";
 
 reactDom.render(
     <Provider store={store} >
-        <App />
+        <Router/>
     </Provider>
     ,
     document.getElementById('root')

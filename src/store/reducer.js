@@ -12,7 +12,7 @@ const defaultState = {
 
  const reducer = (state=defaultState,action)=>{
 
-    let newState = JSON.parse(JSON.stringify(state)) //深拷贝只能拷贝一层，多层要加循环
+    let newState = JSON.parse(JSON.stringify(state)) //深拷贝只能拷贝一层，多层要加循环!!!!!!!!!!
 
     console.log(action);
     switch (action.type) {
@@ -34,6 +34,7 @@ const defaultState = {
         default:break
            
     }
+    
     return newState
     
 }
